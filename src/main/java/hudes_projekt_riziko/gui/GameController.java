@@ -362,6 +362,7 @@ public class GameController implements Initializable {
             if (j == 0) {
                 teruletText.setText(null);
                 addButton.setDisable(true);
+                lepes.setDisable(false);
                 honnan.setDisable(false);
                 hova.setDisable(false);
                 mennyi.setDisable(false);
@@ -871,6 +872,32 @@ public class GameController implements Initializable {
                         }
                     }
                 }
+            }
+        });
+    }
+
+    /**
+     * Eltávolít egy megadott terület nevet a myTeruletek ListView aktuális elemei közül.
+     *
+     * @param elem A terület neve, amelyet el szeretnénk távolítani a listából.
+     */
+    public void removeTerulet(String elem) {
+        Platform.runLater(() -> {
+            ObservableList<String> items = myTeruletek.getItems();
+            items.remove(elem);
+        });
+    }
+
+    /**
+     * Hozzáad egy új megadott területet a myTeruletek ListView aktuális elemeihez, ha még nem szerepel benne.
+     *
+     * @param elem A terület neve, amelyet hozzá szeretnénk adni a listához.
+     */
+    public void addTerulet(String elem) {
+        Platform.runLater(() -> {
+            ObservableList<String> items = myTeruletek.getItems();
+            if (!items.contains(elem)) {
+                items.add(elem);
             }
         });
     }

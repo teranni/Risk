@@ -348,21 +348,24 @@ public class gameClient implements Runnable {
 
                         if (vedo_ID == playerID) {
                             controller.updateVedekezo(tamado, vedo, eredmeny, isFog);
+                            if (isFog) {
+                                controller.removeTerulet(hova);
+                            }
                         } else if (tamado_ID == playerID) {
                             controller.updateTamado(tamado, vedo, eredmeny, isFog);
+                            if (isFog) {
+                                controller.addTerulet(hova);
+                                // +hozzáadhat még katonákat opció
+
+                                String kartya = serverInput.readLine();
+                                controller.addKartya(kartya);
+                            }
                         }
 
                         if (isFog) {
                             controller.updateFoglalasGUI(tamado_ID, vedo_ID, honnan, hova, eredmeny, tamad_mennyi);
                         } else {
                             controller.updateCsataGUI(tamado_ID, honnan, hova, vedo_ID, eredmeny);
-                        }
-
-                        if (tamado_ID == playerID && isFog) {
-                            // +hozzáadhat még katonákat opció
-
-                            String kartya = serverInput.readLine();
-                            controller.addKartya(kartya);
                         }
 
                     }
