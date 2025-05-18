@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<ScrollPane fitToHeight="true" fitToWidth="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hudes_projekt_riziko.gui.GameController">
+
+    <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Rizikó" style="-fx-font-size: 28" />
+
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <HBox alignment="CENTER" spacing="5.0" maxWidth="1000" maxHeight="800"
+                  fx:id="mainHBox" xmlns:fx="http://javafx.com/fxml">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+
+                <VBox alignment="TOP_CENTER" spacing="20.0" fx:id="playerStats">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+                </VBox>
+
+                <VBox alignment="TOP_CENTER" spacing="20.0"
+                      fx:id="middleVBox" xmlns:fx="http://javafx.com/fxml">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+
+                    <TextFlow fx:id="allapot" >
+                        <Text fx:id="allapotText" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                        <Text fx:id="teruletText" style="-fx-font-size: 16"/>
+                    </TextFlow>
+
+                    <ImageView fx:id="mapImage" preserveRatio="true" fitWidth="400" fitHeight="300">
+                        <Image url="@risk_map.png" />
+                    </ImageView>
+
+                    <Label text="Kontinensek adatai:" />
+
+                    <Accordion fx:id="kontStats" />
+
+                </VBox>
+
+                <VBox alignment="TOP_CENTER" spacing="20.0"
+                      fx:id="rightVBox" xmlns:fx="http://javafx.com/fxml">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+
+                    <TextFlow fx:id="mission" maxWidth="250">
+                        <Text fx:id="missionText" />
+                    </TextFlow>
+
+                    <ChoiceBox fx:id="lepes">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Áthelyezés" />
+                                <String fx:value="Csata" />
+                            </FXCollections>
+                        </items>
+                    </ChoiceBox>
+
+                    <ComboBox fx:id="honnan" maxWidth="200" />
+                    <ComboBox fx:id="hova" maxWidth="200" />
+                    <ComboBox fx:id="mennyi" maxWidth="200" />
+
+                    <Button fx:id="lepesButton" disable="true" text="Lépés" onMouseClicked="#lepesSubmit" />
+
+                    <ListView fx:id="myTeruletek" />
+                    <Button fx:id="addButton" disable="true" text="Terület kiválasztása" onMouseClicked="#addSubmit" />
+
+                    <ListView fx:id="myKartyak" />
+
+                </VBox>
+            </HBox>
+        </ScrollPane>
+    </VBox>
+</ScrollPane>
+

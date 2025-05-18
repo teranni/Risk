@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hudes_projekt_riziko.gui.WaitingController">
+
+    <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <Label text="Rizikó" style="-fx-font-size: 28" />
+
+        <Label text="Várakozás ellenfelekre..." style="-fx-font-size: 16" />
+    </VBox>
+</ScrollPane>
